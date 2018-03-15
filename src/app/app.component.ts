@@ -1,4 +1,3 @@
-import { BugsService } from './bugs/bugs.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,24 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'app';
-
-  constructor(private bugsService: BugsService) {
-
-  }
-
-  ngOnInit() {
-    console.log('AppComponent ngOnInit');
-    // this.getBugs();
-  }
-
-  getBugs() {
-    this.bugsService.getAllBugs().subscribe(
-      data => {
-        console.log(data);
-      },
-      error => console.error(error)
-    );
-  }
 }
