@@ -10,6 +10,7 @@ export class BugsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('BugsComponent ngOnInit');
   }
 
 }
