@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background: radial-gradient(ellipse at top, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
   }
   
@@ -54,32 +54,27 @@ html {
     background: transparent;
     box-shadow: 1361px 1988px #FFF , 103px 1806px #FFF , 493px 1154px #FFF , 1213px 1786px #FFF , 1668px 1521px #FFF , 1355px 827px #FFF , 788px 944px #FFF , 1774px 1444px #FFF , 606px 252px #FFF , 372px 1643px #FFF , 409px 1102px #FFF , 1655px 52px #FFF , 1693px 70px #FFF , 1453px 896px #FFF , 361px 1037px #FFF , 664px 190px #FFF , 94px 1456px #FFF , 354px 769px #FFF , 1367px 467px #FFF , 98px 353px #FFF , 1133px 1558px #FFF , 7px 573px #FFF , 263px 608px #FFF , 1888px 1149px #FFF , 188px 1795px #FFF , 793px 1029px #FFF , 192px 552px #FFF , 1365px 537px #FFF , 1793px 1871px #FFF , 156px 1353px #FFF , 887px 540px #FFF , 1528px 864px #FFF , 1288px 1432px #FFF , 999px 62px #FFF , 636px 749px #FFF , 1760px 571px #FFF , 970px 223px #FFF , 457px 1149px #FFF , 316px 72px #FFF , 1347px 1297px #FFF , 1994px 1432px #FFF , 1716px 1260px #FFF , 1151px 1823px #FFF , 367px 945px #FFF , 1928px 405px #FFF , 991px 1369px #FFF , 1881px 1006px #FFF , 419px 1136px #FFF , 252px 862px #FFF , 1608px 128px #FFF , 1721px 291px #FFF , 567px 1191px #FFF , 582px 1841px #FFF , 228px 345px #FFF , 1012px 552px #FFF , 1810px 453px #FFF , 232px 493px #FFF , 363px 1789px #FFF , 281px 1077px #FFF , 817px 97px #FFF , 238px 1351px #FFF , 1869px 660px #FFF , 948px 594px #FFF , 1577px 678px #FFF , 1240px 1060px #FFF , 26px 378px #FFF , 670px 1287px #FFF , 186px 546px #FFF , 828px 1784px #FFF , 385px 1305px #FFF , 593px 1936px #FFF , 1038px 1955px #FFF , 361px 1100px #FFF , 1196px 1006px #FFF , 640px 238px #FFF , 1621px 93px #FFF , 335px 1082px #FFF , 122px 1932px #FFF , 16px 1987px #FFF , 198px 1177px #FFF , 290px 484px #FFF , 1498px 959px #FFF , 694px 1061px #FFF , 1175px 1104px #FFF , 249px 1292px #FFF , 1320px 1195px #FFF , 761px 1415px #FFF , 1727px 193px #FFF , 923px 1940px #FFF , 1018px 1812px #FFF , 845px 1878px #FFF , 1297px 78px #FFF , 1674px 1108px #FFF , 1626px 1193px #FFF , 28px 155px #FFF , 354px 1904px #FFF , 1862px 1739px #FFF , 1920px 1267px #FFF , 315px 1724px #FFF , 1252px 992px #FFF;
   }
+
   
-  #title {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    color: #FFF;
-    text-align: center;
-    font-family: "lato", sans-serif;
-    font-weight: 300;
-    font-size: 50px;
-    letter-spacing: 10px;
-    margin-top: -60px;
-    padding-left: 10px;
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
   }
-  #title span {
-    background: -webkit-linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  to {
+    transform: translateY(-2000px);
   }
-  
-  @keyframes animStar {
-    from {
-      transform: translateY(0px);
-    }
-    to {
-      transform: translateY(-2000px);
-    }
+}
+
+  .earth {
+    max-height: 200px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+
+  .astro-man {
+    max-height: 800px;
+    position: fixed;
+    bottom: 5%;
+    right: 05%;
   }
