@@ -79,10 +79,11 @@ html {
   position: fixed;
   bottom: 5%;
   right: 5%;
+  
 }
 
 .astro-man {
-  max-height: 800px;
+  max-height: 600px;
   position: fixed;
   bottom: 5%;
   right: 05%;
