@@ -18,6 +18,9 @@
                     <div class="panel-heading text-center">
                         <h3 class="panel-title">Sign in to Orbit</h3>
                     </div>
+                    <div class="alert alert-danger text-center" *ngIf="loginFailed">
+                        {{firebaseErrorMessage}}
+                    </div>
                     <div class="panel-body">
                         <form [formGroup]="loginForm" (submit)="submitForm()">
                             <fieldset>
@@ -41,6 +44,6 @@
 </div>
 
 
-<div class="footer" (click)="viewTicketsList();">
+<div class="footer">
     {{footerMessage}}
 </div>

@@ -10,6 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidationMessagesComponent } from './shared/validation-messages/validation-messages.component';
 import { ValidationMessagesService } from './shared/validation-messages/validation-messages.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './shared/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,11 +27,15 @@ import { ValidationMessagesService } from './shared/validation-messages/validati
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     TicketsService,
-    ValidationMessagesService
+    ValidationMessagesService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
