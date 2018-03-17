@@ -96,3 +96,13 @@ html {
 .orbit-title{
   padding-bottom: 100px;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-bottom: 25px;
+}
