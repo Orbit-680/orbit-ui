@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TicketsService } from './tickets.service';
 import { Router } from '@angular/router';
 import { Ticket } from './ticket.model';
+import { AuthService } from '../shared/auth/auth.service';
 
 @Component({
   selector: 'app-tickets',
@@ -13,7 +14,8 @@ export class TicketsComponent implements OnInit {
   public ticketList: Array<Ticket>;
 
   constructor(private ticketsService: TicketsService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
 
   }
 
@@ -34,6 +36,7 @@ export class TicketsComponent implements OnInit {
   }
 
   public navigateHome(){
+    this.authService.logout();
     this.router.navigate(['home']);
   }
 

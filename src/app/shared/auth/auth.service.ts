@@ -7,8 +7,21 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
+  private userDetails: firebase.User = null;
+
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
     this.user = _firebaseAuth.authState;
+
+    this.user.subscribe((user) => {
+        if (user) {
+          this.userDetails = user;
+          console.log(this.userDetails);
+        }
+        else {
+          this.userDetails = null;
+        }
+    });
+
   }
 
   public signInRegular(email, password) {
@@ -16,4 +29,16 @@ export class AuthService {
     return this._firebaseAuth.auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
   }
 
+  public isLoggedIn() {
+    if (this.userDetails == null ) {
+        return false;
+    } else {
+        return true;
+    }
+  }
+    
+  public logout() {
+      this._firebaseAuth.auth.signOut()
+      .then((res) => this.router.navigate(['home']));
+  }
 }
