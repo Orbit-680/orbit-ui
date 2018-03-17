@@ -26,7 +26,7 @@ export class TicketsComponent implements OnInit {
   public getTickets() {
     this.ticketsService.getAllTickets().subscribe(
       data => {
-        console.log(data);
+        this.ticketList = data;
         this.ticketsLoading = false;
       },
       error => console.error(error)

@@ -12,7 +12,7 @@ export class TicketsService {
   }
 
   getAllTickets(): Observable<any> {
-    return this.http.get(environment.apiUrl + '/all-students')
+    return this.http.get(environment.apiUrl + '/all-tickets')
       .map((response: Response) => response.json());
   }
 
