@@ -7,20 +7,26 @@ import { AppComponent } from './app.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ValidationService } from './shared/validation-messages.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidationMessagesComponent } from './shared/validation-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TicketsComponent,
-    HomeComponent
+    HomeComponent,
+    ValidationMessagesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [
-    TicketsService
+    TicketsService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })
