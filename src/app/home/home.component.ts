@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidationService } from '../shared/validation-messages.service';
+import { ValidationMessagesService } from '../shared/validation-messages/validation-messages.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
               private formBuilder: FormBuilder) {
                 this.isSubmitted = false;
                 this.loginForm = this.formBuilder.group({
-                  'email': ['', [Validators.required, ValidationService.emailValidator]],
+                  'email': ['', [Validators.required, ValidationMessagesService.emailValidator]],
                   'password': ['', [Validators.required, Validators.minLength(10)]]
                 });
   }
@@ -33,7 +33,10 @@ export class HomeComponent implements OnInit {
 
   public submitForm(){
     this.isSubmitted = true;
-
+    if (this.loginForm.dirty && this.loginForm.valid) {
+      alert(`Email: ${this.loginForm.value.email}`);
+      this.router.navigate(['tickets']);
+    }
   }
 
 }

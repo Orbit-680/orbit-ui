@@ -24,12 +24,12 @@
                                 <div class="form-group">
                                     <input class="form-control" formControlName="email" id="email" placeholder="E-mail" name="email" type="text" />
                                 </div>
-                                <validation-messages [control]="loginForm.controls.email"></validation-messages>
+                                <validation-messages [control]="loginForm.controls.email" [isFormSubmitted]="isSubmitted" [name]="'Email'"></validation-messages>
                             
                                 <div class="form-group">
-                                    <input class="form-control" formControlName="password" id="password" type="password" placeholder="Password" name="password"/>
+                                    <input class="form-control" formControlName="password" id="password" type="password" placeholder="Password" name="password" />
                                 </div>
-                                <validation-messages [control]="loginForm.controls.password"></validation-messages>
+                                <validation-messages [control]="loginForm.controls.password" [isFormSubmitted]="isSubmitted" [name]="'Password'"></validation-messages>
                             
                                 <input class="btn btn-lg btn-default btn-block" type="submit" value="Login" [disabled]="isSubmitted">
                             </fieldset>
