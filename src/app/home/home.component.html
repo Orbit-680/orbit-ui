@@ -23,8 +23,8 @@
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" formControlName="email" id="email" placeholder="E-mail" name="email" type="text" />
+                                    <validation-messages [control]="loginForm.controls.email" [isFormSubmitted]="isSubmitted" [name]="'Email'"></validation-messages>
                                 </div>
-                                <validation-messages [control]="loginForm.controls.email" [isFormSubmitted]="isSubmitted" [name]="'Email'"></validation-messages>
                             
                                 <div class="form-group">
                                     <input class="form-control" formControlName="password" id="password" type="password" placeholder="Password" name="password" />

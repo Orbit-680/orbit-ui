@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
   public submitForm(){
-    this.isSubmitted = true;
     if (this.loginForm.dirty && this.loginForm.valid) {
+      this.isSubmitted = true;
       alert(`Email: ${this.loginForm.value.email}`);
       this.router.navigate(['tickets']);
     }
