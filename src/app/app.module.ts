@@ -1,17 +1,17 @@
-import { BugsService } from './bugs/bugs.service';
+import { TicketsService } from './tickets/tickets.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import { BugsComponent } from './bugs/bugs.component';
+import { TicketsComponent } from './tickets/tickets.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BugsComponent,
+    TicketsComponent,
     HomeComponent
   ],
   imports: [
@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot(routes),
   ],
   providers: [
-    BugsService
+    TicketsService
   ],
   bootstrap: [AppComponent]
 })

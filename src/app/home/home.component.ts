@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
     this.footerMessage = "© Obrit " + new Date().getFullYear();
   }
 
-  public viewBugsList(){
-    this.router.navigate(['bugs']);
+  public viewTicketsList(){
+    this.router.navigate(['tickets']);
   }
 
 }

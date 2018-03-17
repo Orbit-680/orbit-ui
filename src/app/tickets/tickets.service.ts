@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 @Injectable()
-export class BugsService {
+export class TicketsService {
 
-  constructor(public http: Http) {}
+  constructor(public http: Http) {
 
-  getAllBugs(): Observable<any> {
-    return this.http.get('http://localhost:8080' + '/all-students')
+  }
+
+  getAllTickets(): Observable<any> {
+    return this.http.get(environment.apiUrl + '/all-students')
       .map((response: Response) => response.json());
   }
 

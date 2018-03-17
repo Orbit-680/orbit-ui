@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: "http://orbit-test.brocktubre.com/orbit-api"
 };
