@@ -3,13 +3,14 @@ import { Router } from "@angular/router";
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { RoleService } from '../role/role.service';
 
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router, private roleService: RoleService) { 
     this.user = _firebaseAuth.authState;
 
     this.user.subscribe((user) => {

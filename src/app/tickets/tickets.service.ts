@@ -11,7 +11,7 @@ export class TicketsService {
 
   }
 
-  getAllTickets(): Observable<any> {
+  public getAllTickets(): Observable<any> {
     return this.http.get(environment.apiUrl + '/all-tickets')
       .map((response: Response) => response.json());
   }
