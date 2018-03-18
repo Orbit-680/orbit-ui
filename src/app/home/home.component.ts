@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationMessagesService } from '../shared/validation-messages/validation-messages.service';
 import { AuthService } from '../shared/auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -28,8 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   public ngOnInit() {
-    console.log('HomeComponent ngOnInit()');
+    console.log('HomeComponent ngOnInit');
     this.footerMessage = "© Obrit " + new Date().getFullYear();
+    console.log('Current environment:', environment.envName);
   }
 
   public submitForm(){
