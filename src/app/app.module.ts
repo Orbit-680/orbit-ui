@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth/auth.service';
+import { AuthGuardService } from './shared/auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthService } from './shared/auth/auth.service';
   providers: [
     TicketsService,
     ValidationMessagesService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+  private userDetails: firebase.User;
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
     this.user = _firebaseAuth.authState;
@@ -21,7 +21,6 @@ export class AuthService {
           this.userDetails = null;
         }
     });
-
   }
 
   public signInRegular(email, password) {
@@ -30,7 +29,7 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    if (this.userDetails == null ) {
+    if (!this.userDetails) {
         return false;
     } else {
         return true;
@@ -38,7 +37,9 @@ export class AuthService {
   }
     
   public logout() {
-      this._firebaseAuth.auth.signOut()
-      .then((res) => this.router.navigate(['home']));
+      this._firebaseAuth.auth.signOut().then((res) => {
+        this.userDetails = null;
+        this.router.navigate(['home'])
+      });
   }
 }

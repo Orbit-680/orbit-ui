@@ -40,11 +40,11 @@ export class HomeComponent implements OnInit {
       const password = this.loginForm.controls['password'].value;
 
       this.authService.signInRegular(email, password).then((res) => {
-          console.log('Successfully logged in: ' + res);
+          console.log('Successfully logged in: ', res);
           this.isSubmitted = false;
           this.router.navigate(['tickets']);
         }).catch((err) => {
-          console.error('Error occurred when logging in: ' + err);
+          console.error('Error occurred when logging in: ', err);
           this.isSubmitted = false;
           this.loginFailed = true;
           this.firebaseErrorMessage = err.message;

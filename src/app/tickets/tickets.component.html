@@ -4,7 +4,7 @@
         <div class="loader"></div>
     </div>
 </div>
-<div class="container table-container" *ngIf="!ticketsLoading">
+<div class="container table-container" *ngIf="!ticketsLoading && ticketList.length > 0">
     <div class="col-md-12 text-center">
         <h2>Obrit Tickets</h2>
     </div>
@@ -36,6 +36,13 @@
                         </tr>                                  
                     </tbody>
                 </table>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="!ticketsLoading && ticketList.length === 0">
+    <div class="col-md-12">
+        <div class="alert alert-danger text-center">
+            There are no tickets that have been reported.
         </div>
     </div>
 </div>
