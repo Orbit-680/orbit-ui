@@ -75,7 +75,7 @@ html, body {
 }
 
 .earth {
-  max-height: 200px;
+  max-height: 150px;
   position: fixed;
   bottom: 5%;
   right: 5%;
@@ -90,12 +90,12 @@ html, body {
 }
 
 .orbit-logo{
-  padding-top: 100px;
-  max-height: 300px;
+  padding-top: 50px;
+  max-height: 200px;
 }
 
 .orbit-title{
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .footer {
