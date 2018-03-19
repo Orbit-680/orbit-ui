@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationMessagesService } from '../shared/validation-messages/validation-messages.service';
 import { AuthService } from '../shared/auth/auth.service';
 import { environment } from '../../environments/environment';
+import { RoleService } from '../shared/role/role.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-home',
@@ -16,22 +18,32 @@ export class HomeComponent implements OnInit {
   public loginForm: FormGroup;
   public firebaseErrorMessage: string;
   public loginFailed: boolean;
+  public userDetails: any;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private roleService: RoleService) {
                 this.isSubmitted = false;
                 this.loginFailed = false;
                 this.loginForm = this.formBuilder.group({
                   'email': ['', [Validators.required, ValidationMessagesService.emailValidator]],
                   'password': ['', [Validators.required]]
                 });
+                this.authService.userSubject.subscribe((userDetails) => {  
+                  this.roleService.checkAdminRole(this.userDetails.uid).subscribe();
+                });
+                
   }
 
   public ngOnInit() {
     console.log('HomeComponent ngOnInit');
     this.footerMessage = "© Orbit " + new Date().getFullYear();
     console.log('Current environment:', environment.envName);
+  }
+
+  public logout(){
+    this.authService.logout();
   }
 
   public submitForm(){
@@ -42,9 +54,17 @@ export class HomeComponent implements OnInit {
       const password = this.loginForm.controls['password'].value;
 
       this.authService.signInRegular(email, password).then((res) => {
-          console.log('Successfully logged in: ', res);
           this.isSubmitted = false;
-          this.router.navigate(['tickets']);
+          if(this.roleService.hasAdminRole){
+            console.log('Successfully logged in: ', res);
+            this.router.navigate(['tickets']);
+          }
+          else{
+            this.loginFailed = true;
+            this.firebaseErrorMessage = 'You do not have permissions to use this system.';
+            this.authService.logout();
+            this.userDetails = null;
+          }
         }).catch((err) => {
           console.error('Error occurred when logging in: ', err);
           this.isSubmitted = false;
@@ -53,4 +73,5 @@ export class HomeComponent implements OnInit {
         });
       }
     }
+    
 }
