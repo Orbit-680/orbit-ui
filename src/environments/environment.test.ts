@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
     envName: 'test',
-    apiUrl: "http://orbit-test.brocktubre.com/orbit-api",
+    apiUrl: "https://orbit-test.brocktubre.com/orbit-api",
     firebase: {
       apiKey: "AIzaSyDXhviiirkcruLM-HtE3xAHBRGUbPNxNuQ",
       authDomain: "orbit-680-team.firebaseapp.com",
