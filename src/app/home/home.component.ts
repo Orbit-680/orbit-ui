@@ -30,11 +30,11 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit() {
     console.log('HomeComponent ngOnInit');
-    this.footerMessage = "© Orbit " + new Date().getFullYear();
+    this.footerMessage = '© Orbit ' + new Date().getFullYear();
     console.log('Current environment:', environment.envName);
   }
 
-  public submitForm(){
+  public submitForm() {
     this.loginFailed = false;
     if (this.loginForm.dirty && this.loginForm.valid) {
       this.isSubmitted = true;
