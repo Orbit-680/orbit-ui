@@ -30,23 +30,22 @@ export class HomeComponent implements OnInit {
                   'email': ['', [Validators.required, ValidationMessagesService.emailValidator]],
                   'password': ['', [Validators.required]]
                 });
-                this.authService.userSubject.subscribe((userDetails) => {  
+                this.authService.userSubject.subscribe((userDetails) => {
                   this.roleService.checkAdminRole(this.userDetails.uid).subscribe();
                 });
-                
   }
 
   public ngOnInit() {
     console.log('HomeComponent ngOnInit');
-    this.footerMessage = "© Orbit " + new Date().getFullYear();
+    this.footerMessage = '© Orbit ' + new Date().getFullYear();
     console.log('Current environment:', environment.envName);
   }
 
-  public logout(){
+  public logout() {
     this.authService.logout();
   }
 
-  public submitForm(){
+  public submitForm() {
     this.loginFailed = false;
     if (this.loginForm.dirty && this.loginForm.valid) {
       this.isSubmitted = true;
@@ -55,11 +54,10 @@ export class HomeComponent implements OnInit {
 
       this.authService.signInRegular(email, password).then((res) => {
           this.isSubmitted = false;
-          if(this.roleService.hasAdminRole){
+          if (this.roleService.hasAdminRole) {
             console.log('Successfully logged in: ', res);
             this.router.navigate(['tickets']);
-          }
-          else{
+          }else {
             this.loginFailed = true;
             this.firebaseErrorMessage = 'You do not have permissions to use this system.';
             this.authService.logout();
@@ -73,5 +71,4 @@ export class HomeComponent implements OnInit {
         });
       }
     }
-    
 }

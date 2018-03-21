@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
@@ -13,20 +13,19 @@ export class AuthService {
   private _userSubject = new Subject<firebase.User>();
   public userSubject = this._userSubject.asObservable();
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router, private roleService: RoleService) { 
+  constructor(private _firebaseAuth: AngularFireAuth,
+              private router: Router,
+              private roleService: RoleService) {
     this.user = _firebaseAuth.authState;
 
     this.user.subscribe((user) => {
         if (user) {
           this.userDetails = user;
           this._userSubject.next(this.userDetails);
-        }
-        else {
+        }else {
           this.userDetails = null;
         }
     });
-
-    
   }
 
   public signInRegular(email, password) {
@@ -41,12 +40,12 @@ export class AuthService {
         return true;
     }
   }
-    
+
   public logout() {
       this._firebaseAuth.auth.signOut().then((res) => {
         this.userDetails = null;
         this._userSubject.next(this.userDetails);
-        this.router.navigate(['home'])
+        this.router.navigate(['home']);
       });
   }
 }

@@ -6,13 +6,13 @@
 export const environment = {
   production: false,
   envName: 'dev',
-  apiUrl: "http://localhost:8080",
+  apiUrl: 'http://localhost:8080',
   firebase: {
-    apiKey: "AIzaSyDXhviiirkcruLM-HtE3xAHBRGUbPNxNuQ",
-    authDomain: "orbit-680-team.firebaseapp.com",
-    databaseURL: "https://orbit-680-team.firebaseio.com",
-    projectId: "orbit-680-team",
-    storageBucket: "orbit-680-team.appspot.com",
-    messagingSenderId: "81373994806"
+    apiKey: 'AIzaSyDXhviiirkcruLM-HtE3xAHBRGUbPNxNuQ',
+    authDomain: 'orbit-680-team.firebaseapp.com',
+    databaseURL: 'https://orbit-680-team.firebaseio.com',
+    projectId: 'orbit-680-team',
+    storageBucket: 'orbit-680-team.appspot.com',
+    messagingSenderId: '81373994806'
   }
 };
