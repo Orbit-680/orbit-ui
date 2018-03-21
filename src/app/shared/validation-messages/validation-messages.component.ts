@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ValidationMessagesService } from './validation-messages.service';
 
 @Component({
-  selector: 'validation-messages',
+  selector: 'app-validation-messages',
   templateUrl: './validation-messages.component.html'
 })
 export class ValidationMessagesComponent implements OnInit {
@@ -14,18 +14,15 @@ export class ValidationMessagesComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   get errorMessage() {
-      for (let propertyName in this.control.errors) {
-        
+      for (const propertyName in this.control.errors) {
         if ((this.control.errors.hasOwnProperty(propertyName) && !this.control.pristine)
         || (this.control.parent.pristine && this.isFormSubmitted)
         || (this.control.errors.hasOwnProperty(propertyName) && this.control.parent.dirty && this.isFormSubmitted)) {
           return ValidationMessagesService.getValidatorErrorMessage(propertyName, this.name, this.control.errors[propertyName]);
         }
       }
-      
       return null;
     }
-
 }

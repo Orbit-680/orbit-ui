@@ -4,7 +4,7 @@ export class Ticket {
     public description: string;
     public priority: string;
 
-    public map(o: any){
+    public map(o: any) {
         this.ticketID = o.ticketID;
         this.name = o.name;
         this.description = o.description;
