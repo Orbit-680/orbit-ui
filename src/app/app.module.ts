@@ -16,6 +16,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
+import { AdminRoleGuardService } from './shared/guards/admin-role-guard.service';
 import { RoleService } from './shared/role/role.service';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { RoleService } from './shared/role/role.service';
     ValidationMessagesService,
     AuthService,
     AuthGuardService,
-    RoleService
+    RoleService,
+    AdminRoleGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private userDetails: firebase.User;
+  public userDetails: firebase.User;
   private _userSubject = new Subject<firebase.User>();
   public userSubject = this._userSubject.asObservable();
 

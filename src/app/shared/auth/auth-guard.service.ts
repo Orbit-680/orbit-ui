@@ -14,16 +14,8 @@ export class AuthGuardService implements CanActivate {
               private roleService: RoleService,
               private angularFireAuth: AngularFireAuth) {}
 
-  // canActivate(): boolean {
-  //   if (this.auth.isLoggedIn() && this.roleService.hasAdminRole) {
-  //     return true;
-  //   }else {
-  //     this.router.navigate(['home']);
-  //     return false;
-  //   }
-  // }
 
-  canActivate():Observable<boolean>|boolean {
+  public canActivate(): Observable<boolean>|boolean {
     return this.angularFireAuth.authState.map((auth) => {
         if (auth) {
             console.log('authenticated');

@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
 
       this.authService.signInRegular(email, password).then((res) => {
           this.isSubmitted = false;
+          // this.router.navigate(['tickets']);
           if (this.roleService.hasAdminRole) {
             console.log('Successfully logged in: ', res);
             this.router.navigate(['tickets']);
