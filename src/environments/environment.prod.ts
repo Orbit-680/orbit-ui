@@ -3,11 +3,11 @@ export const environment = {
   envName: 'prod',
   apiUrl: 'https://orbit.brocktubre.com/orbit-api',
   firebase: {
-    apiKey: 'AIzaSyDXhviiirkcruLM-HtE3xAHBRGUbPNxNuQ',
-    authDomain: 'orbit-680-team.firebaseapp.com',
-    databaseURL: 'https://orbit-680-team.firebaseio.com',
-    projectId: 'orbit-680-team',
-    storageBucket: 'orbit-680-team.appspot.com',
-    messagingSenderId: '81373994806'
+    apiKey: "AIzaSyDJUGPgUBhdq25wY8iUmuR7J7Wif9-YRSI",
+    authDomain: "orbit-prod.firebaseapp.com",
+    databaseURL: "https://orbit-prod.firebaseio.com",
+    projectId: "orbit-prod",
+    storageBucket: "orbit-prod.appspot.com",
+    messagingSenderId: "420933802612"
   }
 };
