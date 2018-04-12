@@ -17,13 +17,15 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
 import { RoleService } from './shared/role/role.service';
+import { ErrorComponent } from './shared/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TicketsComponent,
     HomeComponent,
-    ValidationMessagesComponent
+    ValidationMessagesComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

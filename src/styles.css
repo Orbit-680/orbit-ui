@@ -139,3 +139,7 @@ html, body {
 .no-ticket-alert {
   padding-top: 200px;
 }
+
+.error-page .panel-heading {
+  padding-top: 100px;
+}
